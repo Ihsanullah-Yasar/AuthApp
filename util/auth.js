@@ -11,7 +11,6 @@ async function authenticate(mode, email, password) {
   });
   console.log(response);
   const token = response.data.idToken;
-  console.log("return token in authenticate" + token);
   return token;
 }
 
