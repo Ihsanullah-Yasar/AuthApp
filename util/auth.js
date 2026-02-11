@@ -9,7 +9,6 @@ async function authenticate(mode, email, password) {
     password: password,
     returnSecureToken: true,
   });
-  console.log(response);
   const token = response.data.idToken;
   return token;
 }
@@ -20,4 +19,10 @@ export function createUser(email, password) {
 
 export function login(email, password) {
   return authenticate("signInWithPassword", email, password);
+}
+
+export function getWelcomeMessage(token) {
+  return axios.get(
+    "https://rn-expense-app-95159-default-rtdb.firebaseio.com/message" + token,
+  );
 }
