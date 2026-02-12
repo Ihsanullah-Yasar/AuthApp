@@ -15,7 +15,6 @@ function LoginScreen() {
     try {
       const token = await login(email, password);
       authContext.authenticate(token);
-      console.log(token);
     } catch (error) {
       Alert.alert(
         "Authentication failed!",
