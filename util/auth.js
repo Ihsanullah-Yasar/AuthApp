@@ -23,6 +23,7 @@ export function login(email, password) {
 
 export function getWelcomeMessage(token) {
   return axios.get(
-    "https://rn-expense-app-95159-default-rtdb.firebaseio.com/message" + token,
+    "https://rn-expense-app-95159-default-rtdb.firebaseio.com/message.json?auth=" +
+      token,
   );
 }
