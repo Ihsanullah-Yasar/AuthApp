@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const API_KEY = "AIzaSyDjw0wxpQ1_CWKm01-nfYMKs1I-Gtvtgy0";
+const FIREBASE_BASE_URL =
+  "https://rn-expense-app-95159-default-rtdb.firebaseio.com";
 
 async function authenticate(mode, email, password) {
   const url = `https://identitytoolkit.googleapis.com/v1/accounts:${mode}?key=${API_KEY}`;
@@ -22,8 +24,5 @@ export function login(email, password) {
 }
 
 export function getWelcomeMessage(token) {
-  return axios.get(
-    "https://rn-expense-app-95159-default-rtdb.firebaseio.com/message.json?auth=" +
-      token,
-  );
+  return axios.get(`${FIREBASE_BASE_URL}/message.json?auth=${token}`);
 }
