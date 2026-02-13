@@ -74,7 +74,7 @@ function Root() {
   const authContent = useContext(AuthContext);
   useEffect(() => {
     async function fetchToken() {
-      const storedToken = AsyncStorage.getItem("token");
+      const storedToken = await AsyncStorage.getItem("token");
 
       if (storedToken) {
         authContent.authenticate(storedToken);
@@ -89,7 +89,7 @@ function Root() {
     return <AppLoading />;
   }
 
-  <Navigation />;
+  return <Navigation />;
 }
 
 export default function App() {
